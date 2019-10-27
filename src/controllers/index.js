@@ -14,7 +14,7 @@ module.exports = {
   getpost: async (req, res) => {
     try {
       const getdata = await Post.find();
-      responses.success(getdata, res);
+      responses.ok(getdata, res);
     } catch (err) {
       responses.error(String(err), res);
     }
@@ -22,13 +22,13 @@ module.exports = {
   getonepost: async (req, res) => {
     try {
       const getonedata = await Post.findById(req.params.id);
-      responses.success(getonedata, res);
+      responses.ok(getonedata, res);
     } catch (err) {
       responses.error(String(err), res);
     }
   },
   addpost: async (req, res) => {
-
+   
     const post = new Post(req.body);
 
     try {
@@ -43,7 +43,7 @@ module.exports = {
       const update = await Post.updateOne({ _id: req.params.id },
         { $set: req.body }
       );
-      responses.success(update, res);
+      responses.ok(update, res);
     } catch (err) {
       responses.error(String(err), res);
     }

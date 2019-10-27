@@ -9,6 +9,14 @@ const post = mongoose.Schema({
     type: String,
     required: true
   },
+  author: {
+    type: String,
+    default:null
+  },
+  image: {
+    type: String,
+    default: null
+  },
   date: {
     type: Date,
     default: Date.now
